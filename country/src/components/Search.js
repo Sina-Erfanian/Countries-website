@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Card from "./Card";
 
 function Search() {
@@ -81,7 +82,7 @@ function Search() {
       ) : (
         <div className="container-card">
           {filterData.map((ele) => (
-            <div className="card">
+            <Link className="card" to={`/name/${ele.name.common}`}>
               <div className="top-card">
                 <img src={ele.flags.png} alt="img" />
               </div>
@@ -97,14 +98,14 @@ function Search() {
                   <span>Capital</span> : {ele.capital}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}
       {paraValue ? (
         <div className="container-card">
           {regionValue.map((ele) => (
-            <div className="card">
+            <Link className="card" to={`/name/${ele.name.common}`}>
               <div className="top-card">
                 <img src={ele.flags.png} alt="img" />
               </div>
@@ -120,7 +121,7 @@ function Search() {
                   <span>Capital</span> : {ele.capital}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       ) : null}

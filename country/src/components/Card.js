@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Card() {
   const [country, setCountry] = useState([]);
@@ -12,7 +13,7 @@ function Card() {
     <>
       <div className="container-card">
         {country.map((ele) => (
-          <div className="card">
+          <Link className="card" to={`/name/${ele.name.common}`}>
             <div className="top-card">
               <img src={ele.flags.png} alt="img" />
             </div>
@@ -28,7 +29,7 @@ function Card() {
                 <span>Capital</span> : {ele.capital}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </>
